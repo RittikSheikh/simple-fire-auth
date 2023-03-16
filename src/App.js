@@ -1,12 +1,10 @@
 import './App.css';
-import Lottie from 'lottie-react';
-import login from './assests/129750-login-orange.json'
+import { RouterProvider } from 'react-router-dom';
+import { router } from './components/router';
 
 function App() {
   return (
-    <div className="App">
-      <Lottie animationData={login}/>
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
