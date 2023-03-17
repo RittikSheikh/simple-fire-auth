@@ -1,24 +1,22 @@
-import React, { useContext } from 'react';
 import './SignUp.css';
 import Lottie from 'lottie-react';
 import login from '../assests/129750-login-orange.json';
 import { SocialIcon } from 'react-social-icons';
-import { NewUserInfoContext } from '../layouts/Main';
+import app from '../firebase/firebase.init';
+import getAuth from 'firebase/auth';
+
+const auth = getAuth(app)
 
 const SignUp = () => {
-const [newUserInfo,setNewUserInfo] = useContext(NewUserInfoContext)
-console.log(newUserInfo)
+
 const handleSignUp = (e) => {
 	e.preventDefault()
 	const form = e.target;
-	const name = form.name.value;
+	const userName = form.name.value;
 	const email = form.email.value;
 	const password = form.password.value;
-	setNewUserInfo({
-		userName:name,
-		email: email,
-		password: password
-	})
+
+	
 }
 
 
