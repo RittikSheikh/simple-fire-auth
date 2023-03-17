@@ -7,6 +7,7 @@ import { useState } from 'react';
 import google from '../assests/google.json';
 import facebook from '../assests/facebook.json';
 import github from '../assests/github.json';
+import { Link } from 'react-router-dom';
 
 
 
@@ -88,7 +89,7 @@ const handleGithubIN = () => {
 	<div className="flex flex-col justify-between">
 		<div className="space-y-2">
 			<h2 className="text-4xl font-bold leading-tight lg:text-5xl">Let's Sign up</h2>
-			<div className="dark:text-gray-400">Happy to see you in here user !</div>
+			<div className="dark:text-orange-400">Happy to see you in here user !</div>
 		</div>
 		<Lottie className='p-2' animationData={login} loop={true} ></Lottie>
 	</div>
@@ -120,6 +121,7 @@ const handleGithubIN = () => {
         <label className='checkbox-text'>accept terms & condition</label>
         </div>
 		<button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded dark:bg-orange-500 hover:bg-orange-600 dark:text-gray-100">Sign up</button>
+		<small>Already have an account ! <Link to={'/login'} className='text-orange-400 underline'>Log in</Link> </small>
 	</form>
 </div>
         </div>

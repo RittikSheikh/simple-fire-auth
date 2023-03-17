@@ -6,6 +6,7 @@ import facebook from '../assests/facebook.json';
 import github from '../assests/github.json';
 import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import app from '../firebase/firebase.init';
+import { Link } from 'react-router-dom';
 
 
 const auth = getAuth(app)
@@ -74,13 +75,14 @@ const LogIn = () => {
 			<Lottie onClick={handleGithubIN} className='w-28 h-24 bg-slate-700 rounded-lg ml-5 hover:cursor-pointer' animationData={github} loop={true} />
 		</div>
 		<button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded dark:bg-orange-500 hover:bg-orange-600 dark:text-gray-100">Log in</button>
+		<small>Don't have an account ! <Link to={'/signup'} className='text-orange-400 underline'>Sign up</Link> </small>
 	</form>
     <div className="flex flex-col justify-between">
 		<div className="space-y-2">
 			<h2 className="text-4xl font-bold leading-tight lg:text-5xl">Let's Sign in</h2>
-			<div className="dark:text-gray-400">Welcome back user !</div>
+			<div className="dark:text-orange-400">Welcome back user !</div>
 		</div>
-		<Lottie className='p-2 h-80 md:h-96' animationData={signup} loop={true} ></Lottie>
+		<Lottie className='p-2 h-80 md:h-96' animationData={signup} loop={true} />
 	</div>
 </div>
         </div>
