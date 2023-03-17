@@ -3,11 +3,15 @@ import Lottie from 'lottie-react';
 import login from '../assests/129750-login-orange.json';
 import { SocialIcon } from 'react-social-icons';
 import app from '../firebase/firebase.init';
-import getAuth from 'firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, sendEmailVerification, updateProfile} from 'firebase/auth';
+import { useState } from 'react';
 
 const auth = getAuth(app)
 
 const SignUp = () => {
+
+	// storing the newCreated user info
+const [userInfo,setUserInfo] = useState({});
 
 const handleSignUp = (e) => {
 	e.preventDefault()
@@ -16,7 +20,24 @@ const handleSignUp = (e) => {
 	const email = form.email.value;
 	const password = form.password.value;
 
-	
+	createUserWithEmailAndPassword(auth,email,password)
+	.then(result=>{
+		// updating user Name
+		updateProfile(auth.currentUser, {
+			displayName: userName
+		})
+		// verifying user Email 
+		sendEmailVerification(auth.currentUser)
+		.then(()=>{
+			alert('check your mail to verify your email')
+		})
+		const user = result.user;
+		// set the user into State
+		setUserInfo(user)
+	})
+	.catch(error => {
+		console.error(error)
+	})
 }
 
 
