@@ -2,7 +2,7 @@ import './SignUp.css';
 import Lottie from 'lottie-react';
 import login from '../assests/129750-login-orange.json';
 import app from '../firebase/firebase.init';
-import {createUserWithEmailAndPassword, getAuth, sendEmailVerification, updateProfile} from 'firebase/auth';
+import {createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, signInWithPopup, updateProfile} from 'firebase/auth';
 import { useState } from 'react';
 import google from '../assests/google.json';
 import facebook from '../assests/facebook.json';
@@ -12,6 +12,10 @@ import github from '../assests/github.json';
 
 
 const auth = getAuth(app)
+
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const SignUp = () => {
 
@@ -45,6 +49,38 @@ const handleSignUp = (e) => {
 	})
 }
 
+const handleGoogleIN = () => {
+	signInWithPopup(auth, googleProvider)
+	.then(result => {
+		const user = result.user;
+		setUserInfo(user)
+	})
+	.catch(error => {
+		console.error(error)
+	})
+}
+
+const handleFacebookIn = () => {
+	signInWithPopup(auth, facebookProvider)
+	.then(result => {
+		const user = result.user;
+		setUserInfo(user)
+	})
+	.catch(error => {
+		console.error(error)
+	})
+}
+
+const handleGithubIN = () => {
+	signInWithPopup(auth, githubProvider)
+	.then(result => {
+		const user = result.user;
+		setUserInfo(user)
+	})
+	.catch(error => {
+		console.error(error)
+	})
+}
 
     return (
         <div className='my-10 mx-2'>
@@ -73,11 +109,11 @@ const handleSignUp = (e) => {
 		<hr />
 		<div className='w-full flex justify-center'>
 			{/* google */}
-			<Lottie className='w-28 h-24 bg-slate-700 rounded-lg ml-5' animationData={google} loop={true}/>
+			<Lottie onClick={handleGoogleIN} className='w-28 h-24 bg-slate-700 rounded-lg ml-5 hover:cursor-pointer' animationData={google} loop={true}/>
 			{/* facebook */}
-			<Lottie className='w-28 h-24 bg-slate-700 rounded-lg ml-5' animationData={facebook} loop={true} />
+			<Lottie onClick={handleFacebookIn} className='w-28 h-24 bg-slate-700 rounded-lg ml-5 hover:cursor-pointer' animationData={facebook} loop={true} />
 			{/* github */}
-			<Lottie className='w-28 h-24 bg-slate-700 rounded-lg ml-5' animationData={github} loop={true} />
+			<Lottie onClick={handleGithubIN} className='w-28 h-24 bg-slate-700 rounded-lg ml-5 hover:cursor-pointer' animationData={github} loop={true} />
 		</div>
         <div className='checkbox'>
         <input type="checkbox"/>
