@@ -5,7 +5,7 @@ import Typewriter from 'typewriter-effect';
 
 const Home = () => {
     return (
-      <section className="dark:bg-gray-800 dark:text-gray-100">
+      <section className="dark:bg-gray-800 py-10 dark:text-gray-100">
       <div className="container mx-auto flex flex-col items-center px-4 py-8 text-center md:py-8 md:px-10 lg:px-32 xl:max-w-3xl">
         <div className='text-4xl h-36 font-bold leading-none sm:text-5xl'>
         <Typewriter options={{loop:true}} onInit={(typewriter) => {
