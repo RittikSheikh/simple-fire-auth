@@ -1,73 +1,20 @@
 import React from 'react';
+import Lottie from 'lottie-react';
+import home from '../assests/for-home.json';
 
 const Home = () => {
     return (
-        <div>
-			<div className="relative flex flex-col-reverse px-4 py-16 mx-auto lg:block lg:flex-col lg:py-32 xl:py-48 md:px-8 sm:max-w-xl md:max-w-full">
-      <div className="z-0 flex justify-center h-full -mx-4 overflow-hidden lg:pt-24 lg:pb-16 lg:pr-8 xl:pr-0 lg:w-1/2 lg:absolute lg:justify-end lg:bottom-0 lg:left-0 lg:items-center">
-        <img
-          src="https://kitwind.io/assets/kometa/laptop.png"
-          className="object-cover object-right w-full h-auto lg:w-auto lg:h-full"
-          alt=""
-        />
+      <section className="dark:bg-gray-800 dark:text-gray-100">
+      <div className="container mx-auto flex flex-col items-center px-4 py-8 text-center md:py-8 md:px-10 lg:px-32 xl:max-w-3xl">
+        <h1 className="text-4xl font-bold leading-none sm:text-5xl">Welcome to simple
+          <span className="dark:text-blue-400">Web Authentication</span>site project !
+        </h1>
+        <p className="px-8 mt-8 mb-12 text-lg">Hey! . . . hi, Here is <span className="dark:text-blue-400">Rittik</span> <br />I would like to call my self as a <span className="dark:text-blue-400">front-end</span> web developer.Love to learn coding and trying to eat <span className="dark:text-blue-400">code</span> as dinner! <br /><span className="dark:text-blue-400"> #ha ha# </span><br />Will try my best to build your dream <small>SPA</small> web application.</p>
       </div>
-      <div className="relative flex justify-end max-w-xl mx-auto xl:pr-32 lg:max-w-screen-xl">
-        <div className="mb-16 lg:pr-5 lg:max-w-lg lg:mb-0">
-          <div className="max-w-xl mb-6">
-            <div>
-              <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                Brand new
-              </p>
-            </div>
-            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-              We will bring your
-              <br className="hidden md:block" />
-              business{' '}
-              <span className="inline-block text-deep-purple-accent-400">
-                online
-              </span>
-            </h2>
-            <p className="text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae. explicabo.
-            </p>
-          </div>
-          <form>
-            <div className="flex flex-col md:flex-row">
-              <input
-                placeholder="Name"
-                required=""
-                type="text"
-                className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-              />
-              <input
-                placeholder="Email"
-                required=""
-                type="text"
-                className="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-              />
-            </div>
-            <div className="flex items-center mt-4">
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-              >
-                Subscribe
-              </button>
-              <a
-                href="/"
-                aria-label=""
-                className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-              >
-                Learn more
-              </a>
-            </div>
-          </form>
-        </div>
+      <div className='p-4'>
+        <Lottie className='w-4/12 mx-auto' animationData={home} loop={true} />
       </div>
-    </div>
-		</div>
+    </section>
     );
 };
 

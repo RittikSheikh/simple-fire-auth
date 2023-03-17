@@ -42,6 +42,7 @@ const handleSignUp = (e) => {
 			alert('check your mail to verify your email')
 		})
 		const user = result.user;
+		console.log(user)
 		// set the user into State
 		setUserInfo(user)
 	})
