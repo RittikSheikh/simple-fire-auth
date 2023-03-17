@@ -18,7 +18,7 @@ const Header = () => {
             className="inline-flex items-center"
           >
             <svg
-              className="w-8 text-teal-accent-400"
+              className="w-8 text-orange-500"
               viewBox="0 0 24 24"
               strokeLinejoin="round"
               strokeWidth="2"
@@ -74,8 +74,11 @@ const Header = () => {
                 title="About us"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
-                About us
+                About Me
               </NavLink>
+            </li>
+            <li>
+	<img src="https://source.unsplash.com/150x150/?portrait?3" alt="" className="w-10 h-10 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
             </li>
           </ul>
           <div className="lg:hidden">
@@ -186,9 +189,12 @@ const Header = () => {
                           title="About us"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          About us
+                          About Me
                         </NavLink>
                       </li>
+                      <li>
+	<img src="https://source.unsplash.com/150x150/?portrait?3" alt="" className="w-10 h-10 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+            </li>
                     </ul>
                   </nav>
                 </div>
