@@ -1,10 +1,15 @@
 import './SignUp.css';
 import Lottie from 'lottie-react';
 import login from '../assests/129750-login-orange.json';
-import { SocialIcon } from 'react-social-icons';
 import app from '../firebase/firebase.init';
 import {createUserWithEmailAndPassword, getAuth, sendEmailVerification, updateProfile} from 'firebase/auth';
 import { useState } from 'react';
+import google from '../assests/google.json';
+import facebook from '../assests/facebook.json';
+import github from '../assests/github.json';
+
+
+
 
 const auth = getAuth(app)
 
@@ -66,14 +71,14 @@ const handleSignUp = (e) => {
 		</div>
 		
 		<hr />
-		<button className='items-center w-full'>
+		<div className='w-full flex justify-center'>
 			{/* google */}
-			<SocialIcon className='ml-8' bgColor='salmon' url="https://google.com/jaketrent" />
+			<Lottie className='w-28 h-24 bg-slate-700 rounded-lg ml-5' animationData={google} loop={true}/>
 			{/* facebook */}
-			<SocialIcon className='ml-8' bgColor='cornflowerblue' url='https://facebook.com/jaketrent'/>
+			<Lottie className='w-28 h-24 bg-slate-700 rounded-lg ml-5' animationData={facebook} loop={true} />
 			{/* github */}
-			<SocialIcon className='ml-8' bgColor='gray' url='https://github.com/jaketrent'/>
-		</button>
+			<Lottie className='w-28 h-24 bg-slate-700 rounded-lg ml-5' animationData={github} loop={true} />
+		</div>
         <div className='checkbox'>
         <input type="checkbox"/>
         <label className='checkbox-text'>accept terms & condition</label>
