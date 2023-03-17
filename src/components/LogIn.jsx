@@ -1,7 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Lottie from 'lottie-react';
 import signup from '../assests/signup.json';
-import { SocialIcon } from 'react-social-icons';
+import google from '../assests/google.json';
+import facebook from '../assests/facebook.json';
+import github from '../assests/github.json';
+import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import app from '../firebase/firebase.init';
+
+
+const auth = getAuth(app)
+
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+const githubProvider = new GithubAuthProvider();
+
+
+const handleLogIn = (e) => {
+	
+}
+
+
+const handleGoogleIN = () => {
+	signInWithPopup(auth, googleProvider)
+	.then(result => {
+		const user = result.user;
+	})
+	.catch(error => {
+		console.error(error)
+	})
+}
+
+const handleFacebookIn = () => {
+	signInWithPopup(auth, facebookProvider)
+	.then(result => {
+		const user = result.user;
+	})
+	.catch(error => {
+		console.error(error)
+	})
+}
+
+const handleGithubIN = () => {
+	signInWithPopup(auth, githubProvider)
+	.then(result => {
+		const user = result.user;
+	})
+	.catch(error => {
+		console.error(error)
+	})
+}
 
 const LogIn = () => {
     return (
@@ -17,14 +64,15 @@ const LogIn = () => {
 			<input id="password" type="password" name='password' placeholder="password" className="w-full p-3 rounded dark:bg-gray-600" />
 		</div>
 		<hr />
-		<button className='items-center w-full'>
+		
+		<div className='w-full flex justify-center'>
 			{/* google */}
-			<SocialIcon className='ml-8' bgColor='salmon' url="https://google.com/jaketrent" />
+			<Lottie onClick={handleGoogleIN} className='w-28 h-24 bg-slate-700 rounded-lg ml-5 hover:cursor-pointer' animationData={google} loop={true}/>
 			{/* facebook */}
-			<SocialIcon className='ml-8' bgColor='cornflowerblue' url='https://facebook.com/jaketrent'/>
+			<Lottie onClick={handleFacebookIn} className='w-28 h-24 bg-slate-700 rounded-lg ml-5 hover:cursor-pointer' animationData={facebook} loop={true} />
 			{/* github */}
-			<SocialIcon className='ml-8' bgColor='gray' url='https://github.com/jaketrent'/>
-		</button>
+			<Lottie onClick={handleGithubIN} className='w-28 h-24 bg-slate-700 rounded-lg ml-5 hover:cursor-pointer' animationData={github} loop={true} />
+		</div>
 		<button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded dark:bg-orange-500 hover:bg-orange-600 dark:text-gray-100">Log in</button>
 	</form>
     <div className="flex flex-col justify-between">
