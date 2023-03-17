@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './SignUp.css';
 import Lottie from 'lottie-react';
 import login from '../assests/129750-login-orange.json';
 import { SocialIcon } from 'react-social-icons';
+import { NewUserInfoContext } from '../layouts/Main';
 
 const SignUp = () => {
+const [newUserInfo,setNewUserInfo] = useContext(NewUserInfoContext)
+console.log(newUserInfo)
+const handleSignUp = (e) => {
+	e.preventDefault()
+	const form = e.target;
+	const name = form.name.value;
+	const email = form.email.value;
+	const password = form.password.value;
+	setNewUserInfo({
+		userName:name,
+		email: email,
+		password: password
+	})
+}
+
+
     return (
         <div className='my-10 mx-2'>
             <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-800 dark:text-gray-100">
@@ -15,7 +32,7 @@ const SignUp = () => {
 		</div>
 		<Lottie className='p-2' animationData={login} loop={true} ></Lottie>
 	</div>
-	<form noValidate="" className=" signup-form space-y-6 ng-untouched ng-pristine ng-valid">
+	<form noValidate="" onSubmit={handleSignUp} className=" signup-form space-y-6 ng-untouched ng-pristine ng-valid">
 		<div>
 			<label htmlFor="name" className="text-sm">Full name</label>
 			<input id="name" type="text" name='name' placeholder='user name'  className="w-full p-3 rounded dark:bg-gray-600" />
